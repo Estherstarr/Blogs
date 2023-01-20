@@ -118,7 +118,8 @@ Give this project a ⭐️ if you like it !
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-Ruby documentation :) 
+Ruby documentation 
+Railsguide documentation 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
