@@ -13,13 +13,3 @@ RSpec.describe Comment, type: :model do
   end
 end
 
-# posts
-# id,user_id,comments_counter
-# 1,4,0+1=1+1=2
-# 2,4,0+1=1
-
-# comments
-# id,author_id,post_id
-# 1,4,1
-# 2,4,2
-# 3,5,1
