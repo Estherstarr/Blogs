@@ -2,12 +2,12 @@ require 'rails_helper'
 
 RSpec.describe Post, type: :model do
   let(:author) { User.new(name: 'Onomeh') }
-  subject {
+  subject do
     Post.new(
       title: 'This is my first blog',
       author: author
     )
-  }
+  end
 
   it 'is valid with valid attributes' do
     expect(subject).to be_valid
@@ -26,13 +26,11 @@ RSpec.describe Post, type: :model do
       end
     end
 
-    context 'when counter is a negative number' do 
+    context 'when counter is a negative number' do
       before { subject.likes_counter = -2 }
       it 'is not valid' do
         expect(subject).to_not be_valid
       end
-
     end
-    
   end
 end
