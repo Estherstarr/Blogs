@@ -5,6 +5,8 @@ ruby '2.7.2'
 
 gem 'rubocop', '>= 1.0', '< 2.0'
 
+gem 'foreman', '~> 0.87.2'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.4', '>= 7.0.4.1'
 
@@ -75,3 +77,5 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
+
+gem 'tailwindcss-rails', '~> 2.0'

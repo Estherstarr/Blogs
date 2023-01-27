@@ -4,20 +4,36 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script
-      src="https://kit.fontawesome.com/bcd4b0f4a4.js"
-      crossorigin="anonymous"
-    ></script>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <title>user 1</title>
   </head>
   <body>
-    <h1>Here's a list of Users</h1>
-      <h2>User 1</h2>
-      <h2>User 2</h2>
-      <h2>User 3</h2>
-      <h2>User 4</h2>
+     <h1 class = "pb-5 text-2xl">BLOG APP</h1>
+     <% if @users.blank? %>
+       <p>There are no users in the system</p>
+     <% else %>
+        <% @users.each do  |user| %>
+     <div>
+     <%= link_to user_path(user.id) do %>
+    <div class = "flex gap-x-2.5">
+       <img src ="<%= user.photo %>"  width="50" height="50">
+       <h2 class = "text-xl"> 
+       <%= user.name%>
+       </h2>
+      </div>
+      <% end %>
 
+      <p class = "text-sm pb-10">
+       Number of posts: <%= user.posts_counter%>
+      </p>
+
+         <% end %>
+      </div>
+    <% end %>
+
+  
+  
   </body>
 </html>
 

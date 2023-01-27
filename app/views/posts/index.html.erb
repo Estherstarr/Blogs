@@ -12,15 +12,27 @@
     <title>user 1</title>
   </head>
   <body>
-    <h2>User 1</h4>
-      <h2>Post 1</h4>
-          <h4>comment 1</h4>
-          <h4>comment 2</h4>
+  <% if @posts.blank?%>
+      <p>There are no posts</p>
+      <% else %>
+      <div class = "pb-5">
+      <h2 class = "text-2xl"> <%= @user.name %> </h2>
+        Number of posts: <%= @user.posts_counter%>
+      </div>
+          <% @posts.each do |post| %>
+          <%= link_to user_post_path(@user.id, post.id) do %>
+          <h3 class = "text-xl pt-5 font-semibold" ><%= post.title %></h3>
+          <% end %>
+          <p><%= post.text.truncate(50) %>...</p>
+          comments: <%= post.comments_counter %>
+          likes: <%= post.likes_counter%>
+              <% post.recent_comments.each do |comment| %>
+                 <p><% comment.author.name%> <%= comment.text%></p>
+              <% end %>
+              
+          <% end %>
 
-      <h2>Post 2</h4>
-        <h4>comment 1</h4>
-        <h4>comment 2</h4>
-
+  <% end %>
   </body>
 </html>
 
