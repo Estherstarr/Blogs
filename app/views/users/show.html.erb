@@ -16,7 +16,7 @@
       </div>
     <h1>Bio </h1>
     <p class = "pb-5"><%= @user.bio %></p>
-     <% @user.posts.each do |post| %> 
+     <% @user.recent_posts.each do |post| %> 
         <%= link_to user_post_path(@user.id, post.id) do %>
            <h4 class = "text-lg font-semibold"> <%= post.title %> </h4>
         <% end %>
