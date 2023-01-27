@@ -4,24 +4,31 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script
-      src="https://kit.fontawesome.com/bcd4b0f4a4.js"
-      crossorigin="anonymous"
-    ></script>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <title>user 1</title>
   </head>
   <body>
-    <h1>User 1</h1>
-      <h2>Bio</h2>
-        <p>lorem ipjcsjffhfbhnsjjshj</p>
-    <h3>Post 1</h3>
-    <h3>Post 2</h3>
-    <h3>Post 3</h3>
-     <h3>Post 4</h3>
-
-
-
+  <h1 class = "pb-5 text-2xl">USERS</h1>
+      <div class = "pb-5">
+      <h2 class = "text-xl"> <%= @user.name %> </h2>
+        Number of posts: <%= @user.posts_counter%>
+      </div>
+    <h1>Bio </h1>
+    <p class = "pb-5"><%= @user.bio %></p>
+     <% @user.posts.each do |post| %> 
+        <%= link_to user_post_path(@user.id, post.id) do %>
+           <h4 class = "text-lg font-semibold"> <%= post.title %> </h4>
+        <% end %>
+         <p><%= post.text.truncate(100) %>...</p>
+        <p class = "text-sm">comments: <%= post.comments_counter%></p>
+        <p class = "pb-5 text-sm">likes: <% post.likes_counter%></p>
+<% end %>
+<div class = "pt-5">
+    <%= link_to user_posts_path(@user.id) do %>
+      <button class = "border border-black rounded px-0.5 py-0.5">See all posts</button>
+    <% end %>
+  </div>
   </body>
 </html>
 
