@@ -26,12 +26,8 @@
     <% end %>
 
     <h4>Add comment</h4>
-    <%= form_with url: comments_path(@post) do |form| %>
-    <div>
-      <%= form.text_area :text %>
-      </div> 
-    <button class = "border border-black rounded px-0.5 py-0.5 "><%= form.submit "Submit" %></button>
-    <% end %>
+      <%= render partial: 'comments/coments_form' %>
+
 
     <%= form_with url: user_post_likes_path(@user, @post) do |form| %>
       <div class = "pt-5">
