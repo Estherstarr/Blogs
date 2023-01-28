@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   get 'posts/new', to: 'posts#new'
   post 'posts', to: 'posts#create'
   post 'posts/:id/comments', as: 'comments', to: 'comments#create'
-  # post 'posts/:id/likes', as: 'likes', to: 'comments#create'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
