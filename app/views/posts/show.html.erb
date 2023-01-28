@@ -13,13 +13,31 @@
   </head>
 
   <body>
-  <h1 class = "pb-5">Post 1 by:<%= @user.name %></h1>
-   <h2 class = "pb-5 font-semibold"><%= @post.title%></h2>
-   <p class ="pb-5" ><%= @post.text%></p>
-  <% @post.comments.each do |comment|%>
-    <% comment.author.name%> <%=comment.text %>
+  <% flash.each do |type, msg| %>
+    <div>
+      <p style = "color: green;"><%= msg %></p>
+    </div>
   <% end %>
+    <h1 class = "pb-5">Post 1 by:<%= @user.name %></h1>
+    <h2 class = "pb-5 font-semibold"><%= @post.title%></h2>
+    <p class ="pb-5" ><%= @post.text%></p>
+    <% @post.comments.each do |comment|%>
+      <p class = "pb-5"><% comment.author.name%> <%=comment.text %></p>
+    <% end %>
 
+    <h4>Add comment</h4>
+    <%= form_with url: comments_path(@post) do |form| %>
+    <div>
+      <%= form.text_area :text %>
+      </div> 
+    <button class = "border border-black rounded px-0.5 py-0.5 "><%= form.submit "Submit" %></button>
+    <% end %>
+
+    <%= form_with url: user_post_likes_path(@user, @post) do |form| %>
+      <div class = "pt-5">
+        <%= form.submit "Like", class: "border border-black rounded px-0.5 py-0.5" %>
+      </div>
+    <% end %>
   </body>
 </html>
 
