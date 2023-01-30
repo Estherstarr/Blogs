@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/bcd4b0f4a4.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>create form</title>
+  </head>
+
+  <body>
+  <%= form_with url: posts_path do |form| %>
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+    </div>
+    <div>
+    <%= form.label :text %>
+    <%= form.text_area :text %>
+  </div>
+  <div>
+    <%= form.submit "Create" %>
+</div>
+  <% end %>
+
+  </body>
+</html>
