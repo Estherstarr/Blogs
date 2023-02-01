@@ -8,31 +8,31 @@
       src="https://kit.fontawesome.com/bcd4b0f4a4.js"
       crossorigin="anonymous"
     ></script>
-
     <title>user 1</title>
   </head>
+
   <body>
-  <% if @posts.blank?%>
-      <p>There are no posts</p>
-      <% else %>
       <div class = "pb-5">
-      <h2 class = "text-2xl"> <%= @user.name %> </h2>
-        Number of posts: <%= @user.posts_counter%>
+        <img src ="<%= @user.photo %>" alt="user_photo" width="50" height="50">
+        <h2 class = "text-2xl"> <%= @user.name %> </h2>
+            Number of posts: <%= @user.posts_counter %>
       </div>
-          <% @posts.each do |post| %>
+      <% if @posts.blank? %>
+        <p>There are no posts</p>
+      <% else %>
+
+        <% @posts.each do |post| %>
           <%= link_to user_post_path(@user.id, post.id) do %>
           <h3 class = "text-xl pt-5 font-semibold" ><%= post.title %></h3>
           <% end %>
           <p><%= post.text.truncate(50) %>...</p>
           comments: <%= post.comments_counter %>
-          likes: <%= post.likes_counter%>
-              <% post.recent_comments.each do |comment| %>
-                 <p><% comment.author.name%> <%= comment.text%></p>
-              <% end %>
-              
-          <% end %>
-
-  <% end %>
+          likes: <%= post.likes_counter %>
+          <% post.recent_comments.each do |comment| %>
+            <p><% comment.author.name%> <%= comment.text %></p>
+          <% end %>   
+        <% end %>
+    <% end %>
   </body>
 </html>
 
