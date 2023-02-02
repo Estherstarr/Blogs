@@ -1,10 +1,12 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="field w-full pb-5">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Username", 
+    class: "w-full  shadow appearance-none border rounded" %>
   </div>
 
   <div class="field">
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.password_field :password, autocomplete: "current-password", , placeholder: "Password", 
+    class: "w-full  shadow appearance-none border rounded  %>
   </div>
 
 
@@ -15,9 +17,10 @@
     </div>
   <% end %>
 
-  <div class= "actions">
+  <button class= "actions bg-blue-500 hover:bg-blue-700 text-white
+  font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
      <%= f.submit "Log in" %>
-  </div>
+  </button>
 
   
 
