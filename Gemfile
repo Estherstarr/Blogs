@@ -7,6 +7,7 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 
 gem 'foreman', '~> 0.87.2'
 
+gem 'devise'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.4', '>= 7.0.4.1'
 
