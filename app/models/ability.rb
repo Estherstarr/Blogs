@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Ability
   include CanCan::Ability
 
@@ -10,15 +8,15 @@ class Ability
 
     return unless user.present?
 
-    can [:read, :destroy], Post, user: user
+    can %i[read destroy], Post, user: user
 
-    can [:read, :destroy], Comment, user: user
+    can %i[read destroy], Comment, user: user
 
     return unless user.admin?
 
-    can [:read, :destroy], Post
+    can %i[read destroy], Post
 
-    can [:read, :destroy], Comment
+    can %i[read destroy], Comment
 
     # Define abilities for the user here. For example:
     #

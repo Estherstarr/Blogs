@@ -13,6 +13,15 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @comment = Comment.find(params[:id])
+    if @comment.destroy
+      redirect_to user_post_path(current_user, @comment.post), status: :see_other
+    else
+      render :show, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def comment_params
