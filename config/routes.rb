@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
+  devise_for :users
+
+  devise_scope :user do
+    root to: "users#index"
+  end
+
   resources :users, only: [:index, :show]  do
     resources :posts, only: [:index, :show] do
       resources :likes, only: [:create]
@@ -10,7 +17,8 @@ Rails.application.routes.draw do
   post 'posts/:id/comments', as: 'comments', to: 'comments#create'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
+  
+  
+  
   # Defines the root path route ("/")
-  # root "articles#index"
 end

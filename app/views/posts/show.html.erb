@@ -1,21 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script
-      src="https://kit.fontawesome.com/bcd4b0f4a4.js"
-      crossorigin="anonymous"
-    ></script>
-
-    <title>user 1</title>
-  </head>
-
-  <body>
   <% flash.each do |type, msg| %>
     <div>
-      <p style = "color: green;"><%= msg %></p>
+      <p style = "color: green"><%= msg %></p>
     </div>
   <% end %>
   <div>
@@ -30,7 +15,7 @@
     <% end %>
 
     <h4>Add comment</h4>
-      <%= render partial: 'comments/coments_form' %>
+      <%= render partial: 'shared/coments_form' %>
 
 
     <%= form_with url: user_post_likes_path(@user, @post) do |form| %>
@@ -38,6 +23,3 @@
         <%= form.submit "Like", class: "border border-black rounded px-0.5 py-0.5" %>
       </div>
     <% end %>
-  </body>
-</html>
-
