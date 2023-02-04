@@ -19,13 +19,13 @@
             <p><% comment.author.name%> <%= comment.text %></p>
           <% end %>  
           </div> 
-        <%= button_to  user_post_path(@user.id, post.id), 
-         method: :delete do %>
-            <button class = "bg-red-600	mt-3 hover:bg-red-700 text-white
-             font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" >Delete</button>
+          <% if can?(:destroy, post) %>
+            <%= button_to  user_post_path(@user.id, post.id), method: :delete do %>
+              <button class="bg-red-600	mt-3 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                Delete
+              </button>
+            <% end %>
+          <% end %>
         <% end %>
-
-        <% end %>
-
     <% end %>
 
