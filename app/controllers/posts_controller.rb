@@ -22,6 +22,15 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    @post = Post.find(params[:id])
+    if @post.destroy
+      redirect_to user_posts_path, status: :see_other
+    else
+      render :index, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def post_params
