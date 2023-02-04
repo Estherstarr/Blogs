@@ -3,10 +3,13 @@ class Ability
 
   def initialize(user)
     can :read, Post, public: true
+    can :read, Comment, public: true
     return unless user.present?
     can %i[read destroy], Post, user: user
+    can %i[read destroy], Comment, user: user
     return unless user.admin?
     can %i[read destroy], Post
+    can %i[read destroy], Comment
 
     # Define abilities for the user here. For example:
     #
