@@ -2,6 +2,11 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    can :read, Post, public: true
+    return unless user.present?
+    can %i[read destroy], Post, user: user
+    return unless user.admin?
+    can %i[read destroy], Post
 
     # Define abilities for the user here. For example:
     #
